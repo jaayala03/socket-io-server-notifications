@@ -1,0 +1,22 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cliente de Notificaciones</title>
+</head>
+<body>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/socket.io@4.3.2/dist/socket.io.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/socket.io@4.3.2/dist/socket.io.min.js"></script>
+    <script>
+        const socket = io('http://localhost:3006');
+
+        socket.on('nuevaNotificacion', (data) => {
+            console.log('Nueva notificación recibida:', data);
+        });
+
+        // Enviar una notificación al servidor
+        socket.emit('enviarNotificacion', { mensaje: 'Hola, mundo!' });
+    </script>
+</body>
+</html>
